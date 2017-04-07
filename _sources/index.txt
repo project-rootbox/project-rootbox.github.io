@@ -29,6 +29,8 @@ ideally suited for creating portable, reproducible development environments.
 
 Want to know more? :doc:`Check out the docs! <guide>`
 
+Like it? `Star it on GitHub! <https://github.com/project-rootbox/rootbox>`_
+
 .. raw:: html
 
   </div>
