@@ -31,14 +31,19 @@ untrusted code. Use containers for that!
 Getting Started
 ***************
 
-Install it from GitHub::
+Just run::
+
+  curl -L https://goo.gl/H3OpCL | sudo sh
+
+If you're not confortable with running random internet scripts, you can also
+install it from GitHub instead::
 
   git clone https://github.com/rootbox/rootbox.git
   cd rootbox
-  sh install.sh  # Probably as sudo!
+  sudo sh install.sh
 
-Next, you need to initialize the Rootbox workspace directory, which is where
-all your images and boxes will be stored. You can do so using
+Once that's done, you need to initialize the Rootbox workspace directory, which
+is where all your images and boxes will be stored. You can do so using
 ``rootbox init``::
 
   rootbox init
