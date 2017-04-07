@@ -301,11 +301,13 @@ from <code class="docutils literal"><span class="pre">CoolRootboxScripts/cool_sc
 </pre></div>
 </div>
 <p>GitLab is supported, too:</p>
-<blockquote>
-<div>rootbox box.new -n mybox -v 3.5 -f gitlab:MyGitlabUser/my_gitlab_repo&#64;&#64;branch///factory_name.sh</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.new -n mybox -v 3.5 -f gitlab:MyGitlabUser/my_gitlab_repo@@branch///factory_name.sh
+</pre></div>
+</div>
 <p>as well as any other plain old Git repository:</p>
-<blockquote>
-<div>rootbox box.new -n mybox -v 3.5 -f git:https://whatever.com/my_repo.git&#64;&#64;branch///factory_name.sh</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.new -n mybox -v 3.5 -f git:https://whatever.com/my_repo.git@@branch///factory_name.sh
+</pre></div>
+</div>
 <p>In fact, factories can be pulled from anywhere on the internet:</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.new -n mybox -v 3.5 -f url:https://mysite.com/some_cool_factory.sh
 </pre></div>

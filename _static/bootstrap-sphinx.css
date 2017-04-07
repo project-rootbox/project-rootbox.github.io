@@ -188,6 +188,12 @@ table.field-list {
   }
 }
 
+h1 > a.headerlink, h2 > a.headerlink, h3 > a.headerlink, h4 > a.headerlink,
+h5 > a.headerlink, h6 > a.headerlink, dt > a.headerlink, caption > a.headerlink,
+p.caption > a.headerlink, div.code-block-caption > a.headerlink {
+  display: none;
+}
+
 h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink,
 h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink,
 dt:hover > a.headerlink, caption:hover > a.headerlink,
