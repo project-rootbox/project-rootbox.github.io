@@ -38,7 +38,7 @@ Just run::
 If you're not confortable with running random internet scripts, you can also
 install it from GitHub instead::
 
-  git clone https://github.com/rootbox/rootbox.git
+  git clone https://github.com/project-rootbox/rootbox.git
   cd rootbox
   sudo sh install.sh
 
