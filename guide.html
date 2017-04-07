@@ -124,14 +124,19 @@ untrusted code. Use containers for that!</p>
 </div>
 <div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<p>Install it from GitHub:</p>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/rootbox/rootbox.git
-cd rootbox
-sh install.sh  # Probably as sudo!
+<p>Just run:</p>
+<div class="highlight-python"><div class="highlight"><pre>curl -L https://goo.gl/H3OpCL | sudo sh
 </pre></div>
 </div>
-<p>Next, you need to initialize the Rootbox workspace directory, which is where
-all your images and boxes will be stored. You can do so using
+<p>If you&#8217;re not confortable with running random internet scripts, you can also
+install it from GitHub instead:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/rootbox/rootbox.git
+cd rootbox
+sudo sh install.sh
+</pre></div>
+</div>
+<p>Once that&#8217;s done, you need to initialize the Rootbox workspace directory, which
+is where all your images and boxes will be stored. You can do so using
 <code class="docutils literal"><span class="pre">rootbox</span> <span class="pre">init</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox init
 </pre></div>
