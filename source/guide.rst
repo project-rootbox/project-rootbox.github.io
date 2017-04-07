@@ -230,11 +230,11 @@ To use it from the branch ``devel``::
 
   rootbox box.new -n mybox -v 3.5 -f git:CoolRootboxScripts/cool_scripts_set_1@@devel///my_other_factory.sh
 
-GitLab is supported, too:
+GitLab is supported, too::
 
   rootbox box.new -n mybox -v 3.5 -f gitlab:MyGitlabUser/my_gitlab_repo@@branch///factory_name.sh
 
-as well as any other plain old Git repository:
+as well as any other plain old Git repository::
 
   rootbox box.new -n mybox -v 3.5 -f git:https://whatever.com/my_repo.git@@branch///factory_name.sh
 
