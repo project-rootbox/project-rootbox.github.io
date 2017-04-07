@@ -49,7 +49,7 @@ is where all your images and boxes will be stored. You can do so using
   rootbox init
 
 This will initialize Rootbox in ``$HOME/.rootbox``. If you want to use a
-different directory, just pass ``-d``::
+different directory, just say so::
 
   rootbox init my_directory
 
@@ -98,7 +98,7 @@ Creating an image
 As already mentioned, images are unmodified installations of Alpine Linux, ready
 to be converted to a box when desired. They're easy to create::
 
-  rootbox image.add -v 3.5
+  rootbox image.add 3.5
 
 Here, we're using Alpine Linux 3.5, as passed to the version argument. Note that
 the resulting image will be around 210 MB in size. This seems rather big, but
@@ -106,7 +106,7 @@ it also contains several development tools and libraries, such as GCC,
 libstdc++, git, and more. If you want just a plain Alpine Linux installation,
 then you can also pass ``-s``::
 
-  rootbox image.add -v 3.5 -s
+  rootbox image.add 3.5 -s
 
 This will create a *slim* or *nodev* image, which is significantly lighter
 (around ~13 MB in size) but doesn't contain development tools inside. When you
@@ -121,40 +121,43 @@ Creating a box
 
 Creating a new box is easy::
 
-  rootbox box.new -n mybox -v 3.5
+  rootbox box.new mybox
 
 Here, we're creating a box called *mybox*, using the Alpine Linux 3.5 image that
-was created earlier. (To use the slim/nodev image, pass ``-v 3.5-nodev``
-instead.)
+was created earlier. If you want to use a different image instead, use ``-v``::
 
-You can also add a list of bind mounts to be mounted whenever the box is run.
+  rootbox box.new mybox -v 3.4
+
+(To use the slim/nodev image, pass ``-v 3.5-nodev`` instead.)
+
+You can also pass a list of bind mounts to be mounted whenever the box is run.
 For example::
 
-  rootbox box.new -n mybox -v 3.5 -b outside_directory///inside_directory
+  rootbox box.new mybox outside_directory///inside_directory
 
 Now, whenever this box is run ``outside_directory`` will appear inside it as
 ``/inside_directory``. For instance, if you always want the current directory
 to be mounted inside the box as ``/cwd``, you could run::
 
-  rootbox box.new -n mybox -v 3.5 -b .///cwd
+  rootbox box.new -n mybox .///cwd
 
 Absolute paths can be used, too::
 
-  rootbox box.new -n mybox -v 3.5 -b /home/$USER///external_home
+  rootbox box.new -n mybox /home/$USER///external_home
 
 Running your boxes
 ******************
 
 Now that a box has been created, let's run it! ::
 
-  rootbox box.run -n mybox
+  rootbox box.run mybox
 
 This will put you inside an ``ash`` shell inside your box. Take a look around
 for a bit! Once you're done, you can Ctrl-D out of it.
 
 Just like above, bind mounts can be created when the box is run::
 
-  rootbox box.run -n mybox -b .///cwd
+  rootbox box.run mybox .///cwd
 
 These will be mounted in addition to any specified when creating the box for the
 first time.
@@ -168,7 +171,7 @@ this::
 
 A command can also be passed via the command line::
 
-  rootbox box.run -n mybox -c 'echo 123'
+  rootbox box.run mybox -c 'echo 123'
 
 Box factories
 *************
@@ -183,7 +186,7 @@ you could create a factory ``clang.sh`` containing:
 
 To create a box using your factory, you can just run::
 
-  rootbox box.new -n mybox -v 3.5 -f clang.sh
+  rootbox box.new mybox -f clang.sh
 
 ``-f`` takes a path to your box factory. However, things get fancier than that!
 
@@ -219,33 +222,33 @@ Using factories from the internet
 If things weren't already awesome enough, you can load your factories straight
 from the web or Git. If you have a factory up at GitHub, you could use it via::
 
-  rootbox box.new -n mybox -v 3.5 -f git:myuser/myrepo@@mybranch///myfactory.sh
+  rootbox box.new mybox -f git:myuser/myrepo@@mybranch///myfactory.sh
 
 If ``@@mybranch`` is ommited, it defaults to *master*. If ``///myfactory.sh``
 is ommited, it defaults to ``factory.sh``. For instance, to load ``factory.sh``
 from ``CoolRootboxScripts/cool_scripts_set_1``::
 
-  rootbox box.new -n mybox -v 3.5 -f git:CoolRootboxScripts/cool_scripts_set_1
+  rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1
 
 To use ``my_other_factory.sh``::
 
-  rootbox box.new -n mybox -v 3.5 -f git:CoolRootboxScripts/cool_scripts_set_1///my_other_factory.sh
+  rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1///my_other_factory.sh
 
 To use it from the branch ``devel``::
 
-  rootbox box.new -n mybox -v 3.5 -f git:CoolRootboxScripts/cool_scripts_set_1@@devel///my_other_factory.sh
+  rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1@@devel///my_other_factory.sh
 
 GitLab is supported, too::
 
-  rootbox box.new -n mybox -v 3.5 -f gitlab:MyGitlabUser/my_gitlab_repo@@branch///factory_name.sh
+  rootbox box.new mybox -f gitlab:MyGitlabUser/my_gitlab_repo@@branch///factory_name.sh
 
 as well as any other plain old Git repository::
 
-  rootbox box.new -n mybox -v 3.5 -f git:https://whatever.com/my_repo.git@@branch///factory_name.sh
+  rootbox box.new mybox -f git:https://whatever.com/my_repo.git@@branch///factory_name.sh
 
 In fact, factories can be pulled from anywhere on the internet::
 
-  rootbox box.new -n mybox -v 3.5 -f url:https://mysite.com/some_cool_factory.sh
+  rootbox box.new mybox -f url:https://mysite.com/some_cool_factory.sh
 
 The syntax this time is a bit different: the url must point to an absolute URL
 to the factory. If the URL ends with a slash (``/``), then ``factory.sh`` will
@@ -269,37 +272,37 @@ If you want to see a list of all the boxes that have been installed, just run::
 
 Boxes can be cloned::
 
-  rootbox box.clone -s source_box -n new_box
+  rootbox box.clone source_box new_box
 
 and deleted::
 
-  rootbox box.remove -n mybox
+  rootbox box.remove mybox
 
 More importantly, they can also be exported using ``box.dist``. It works much
 like you'd expect by now::
 
-  rootbox box.dist -n mybox
+  rootbox box.dist mybox
 
 The default file name is ``<your_box_name>.box``. In this case, it'll be
 ``mybox.box``. That can be overriden, of course::
 
-  rootbox box.dist -n mybox -o my_custom_name.box
+  rootbox box.dist mybox -o my_custom_name.box
 
 In addition, you can apply compression using ``-c`` to make it a bit smaller::
 
-  rootbox box.dist -n mybox -o gzip_compressed.box.gz -c gzip
-  rootbox box.dist -n mybox -o bzip2_compressed.box.bz2 -c bzip2
+  rootbox box.dist mybox -o gzip_compressed.box.gz -c gzip
+  rootbox box.dist mybox -o bzip2_compressed.box.bz2 -c bzip2
 
 Boxes can also be imported::
 
-  rootbox box.import -n mybox -l mybox.box.gz
+  rootbox box.import mybox.box.gz mybox
 
 Here, ``mybox.box.gz`` is being imported using the name ``mybox``. In fact,
 boxes can be imported from virtually anywhere, using the exact same syntax as
 used with box factories::
 
-  rootbox box.import -n mybox -l url:rootbox_storage.com/1234567
-  rootbox box.import -n mybox -l git:Cooluser101/myboxes///cool_stuff.box
+  rootbox box.import url:rootbox_storage.com/1234567 mybox
+  rootbox box.import git:Cooluser101/myboxes///cool_stuff.box mybox
 
 An example
 **********
@@ -310,8 +313,8 @@ Building C
 Donald wants to create a box that can be used to statically compile his C
 programs. Alpine Linux is great for static linking::
 
-  rootbox box.new -n static_c -b .///cwd
-  rootbox box.run -n static_c
+  rootbox box.new static_c .///cwd
+  rootbox box.run static_c
 
   # Inside the box...
   cd /cwd
@@ -344,12 +347,12 @@ factories to automate...everything:
 She can save this to ``nim-factory.sh``. Then, to create her image, she can
 just run::
 
-  rootbox box.new -n nim -b .///cwd -f nim-factory.sh
+  rootbox box.new nim .///cwd -f nim-factory.sh
 
 If she uploads her Nim factory to GitHub in ``mary123/factories``, someone else
 can use it, too::
 
-  rootbox box.new -n nim -b .///cwd -f git:mary123/factories///nim-factory.sh
+  rootbox box.new nim .///cwd -f git:mary123/factories///nim-factory.sh
 
 If Robby wants to build a Nim program using Rootbox, he can create a factory,
 too:
