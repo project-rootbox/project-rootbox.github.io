@@ -263,6 +263,11 @@ too. You could have something like this:
   #:DEPENDS git:myuser/myrepo///myfactory.sh
   #:DEPENDS url:rootbox_factories.com/myotherfactory.sh
 
+There are several pre-made factories in the still-growing
+`rootbox-factories <https://github.com/project-rootbox/rootbox-factories>`
+repository. If you have a really cool idea for a factory that you figure would
+be useful to a lot of people, you can open up an issue there as a request.
+
 Managing, exporting, and importing your boxes
 *********************************************
 
