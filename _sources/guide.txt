@@ -173,6 +173,15 @@ A command can also be passed via the command line::
 
   rootbox box.run mybox -c 'echo 123'
 
+If you're planning on running X11 applications inside your box, you'll need to
+pass ``-x``::
+
+  rootbox box.run mybox -x
+
+(Note that you may also need to run ``sudo apk add font-adobe-100dpi`` if you
+run into problems involving missing fonts, e.g. you get boxes instead of text
+in your programs.)
+
 Box factories
 *************
 

@@ -254,6 +254,14 @@ this:</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox -c &#39;echo 123&#39;
 </pre></div>
 </div>
+<p>If you&#8217;re planning on running X11 applications inside your box, you&#8217;ll need to
+pass <code class="docutils literal"><span class="pre">-x</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox -x
+</pre></div>
+</div>
+<p>(Note that you may also need to run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apk</span> <span class="pre">add</span> <span class="pre">font-adobe-100dpi</span></code> if you
+run into problems involving missing fonts, e.g. you get boxes instead of text
+in your programs.)</p>
 </div>
 <div class="section" id="box-factories">
 <h2>Box factories<a class="headerlink" href="#box-factories" title="Permalink to this headline">¶</a></h2>
