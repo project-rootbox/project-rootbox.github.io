@@ -8,8 +8,9 @@ Rootbox requires two things:
 
 - A Linux system. Some others Unixes (like the BSDs) may work, but they're
   untested.
-- An ext4 file system to store the workspace directory (see below). Rootbox
-  relies on the magic of ext4's sparse files to easily create boxes and images.
+- An file system with sparse file support to store the workspace directory (see
+  below). Rootbox relies on the magic of sparse files to easily create boxes and
+  images. (Note that only ext4 has been tested.)
 
 Also, here's something import:
 
@@ -55,8 +56,8 @@ different directory, just say so::
 
 This will create the directory and symlink it to ``$HOME/.rootbox``.
 
-Note that, as already mentioned above, **this directory must be on an ext4 file
-system**!
+Note that, as already mentioned above, **this directory must be on a file system
+with sparse file support**!
 
 If at any point in the future, you want to use a different workspace directory,
 you'll need to pass ``-f`` to force the reinitialization.
@@ -64,10 +65,10 @@ you'll need to pass ``-f`` to force the reinitialization.
 .. warning::
 
   Do **NOT** tamper with the workspace directory! By that, I mean don't go
-  touching it in any way. Remember when I said that Rootbox uses ext4's sparse
-  files? Well, that means that, if you try to play with the directory or
-  copy/move files outside of it, there's a chance all the sparse files will
-  inflate to their full 128 GB size. Ouch!!
+  touching it in any way. Remember when I said that Rootbox uses sparse files?
+  Well, that means that, if you try to play with the directory or copy/move
+  files outside of it, there's a chance all the sparse files will inflate to
+  their full 128 GB size. Ouch!!
 
 Concepts
 ********
