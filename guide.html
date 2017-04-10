@@ -108,8 +108,9 @@
 <ul class="simple">
 <li>A Linux system. Some others Unixes (like the BSDs) may work, but they&#8217;re
 untested.</li>
-<li>An ext4 file system to store the workspace directory (see below). Rootbox
-relies on the magic of ext4&#8217;s sparse files to easily create boxes and images.</li>
+<li>An file system with sparse file support to store the workspace directory (see
+below). Rootbox relies on the magic of sparse files to easily create boxes and
+images. (Note that only ext4 has been tested.)</li>
 </ul>
 <p>Also, here&#8217;s something import:</p>
 <p><strong>ROOTBOX IS NOT SECURE.</strong></p>
@@ -147,17 +148,17 @@ different directory, just say so:</p>
 </pre></div>
 </div>
 <p>This will create the directory and symlink it to <code class="docutils literal"><span class="pre">$HOME/.rootbox</span></code>.</p>
-<p>Note that, as already mentioned above, <strong>this directory must be on an ext4 file
-system</strong>!</p>
+<p>Note that, as already mentioned above, <strong>this directory must be on a file system
+with sparse file support</strong>!</p>
 <p>If at any point in the future, you want to use a different workspace directory,
 you&#8217;ll need to pass <code class="docutils literal"><span class="pre">-f</span></code> to force the reinitialization.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">Do <strong>NOT</strong> tamper with the workspace directory! By that, I mean don&#8217;t go
-touching it in any way. Remember when I said that Rootbox uses ext4&#8217;s sparse
-files? Well, that means that, if you try to play with the directory or
-copy/move files outside of it, there&#8217;s a chance all the sparse files will
-inflate to their full 128 GB size. Ouch!!</p>
+touching it in any way. Remember when I said that Rootbox uses sparse files?
+Well, that means that, if you try to play with the directory or copy/move
+files outside of it, there&#8217;s a chance all the sparse files will inflate to
+their full 128 GB size. Ouch!!</p>
 </div>
 </div>
 <div class="section" id="concepts">
