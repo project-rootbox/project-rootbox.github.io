@@ -285,6 +285,10 @@ If you want to see a list of all the boxes that have been installed, just run::
 
   rootbox box.list
 
+You can get info about an individual box with ``box.info``::
+
+  rootbox box.info mybox
+
 Boxes can be cloned::
 
   rootbox box.clone source_box new_box
@@ -293,8 +297,25 @@ and deleted::
 
   rootbox box.remove mybox
 
-More importantly, they can also be exported using ``box.dist``. It works much
-like you'd expect by now::
+If you want to change your a box's settings later on, you can use
+the ``box.update`` command set. For instance, you can use ``box.update.binds``
+to update a box's default bind mounts::
+
+  rootbox box.update.binds mybox a///b   # Add a///b to the default bind mounts.
+  rootbox box.update.binds mybox ^a///b  # Remove it from the default bind mounts.
+
+As you can see, prefixing a bind with ``^`` will remove it instead of adding it.
+
+Similarly, ``box.update.factory`` can be used to run another factory once the
+box has already been created::
+
+  rootbox box.update.factory mybox url:https://foo.bar/myfactory.sh
+
+Exporting and importing your boxes
+**********************************
+
+Boxes can be exported using ``box.dist``. It works much like you'd expect by
+now::
 
   rootbox box.dist mybox
 
@@ -319,8 +340,8 @@ used with box factories::
   rootbox box.import url:rootbox_storage.com/1234567 mybox
   rootbox box.import git:Cooluser101/myboxes///cool_stuff.box mybox
 
-An example
-**********
+Some examples
+*************
 
 Building C
 ^^^^^^^^^^
