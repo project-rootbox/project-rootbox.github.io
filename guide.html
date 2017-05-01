@@ -350,6 +350,10 @@ be useful to a lot of people, you can open up an issue there as a request.</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.list
 </pre></div>
 </div>
+<p>You can get info about an individual box with <code class="docutils literal"><span class="pre">box.info</span></code>:</p>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.info mybox
+</pre></div>
+</div>
 <p>Boxes can be cloned:</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.clone source_box new_box
 </pre></div>
@@ -358,8 +362,24 @@ be useful to a lot of people, you can open up an issue there as a request.</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.remove mybox
 </pre></div>
 </div>
-<p>More importantly, they can also be exported using <code class="docutils literal"><span class="pre">box.dist</span></code>. It works much
-like you&#8217;d expect by now:</p>
+<p>If you want to change your a box&#8217;s settings later on, you can use
+the <code class="docutils literal"><span class="pre">box.update</span></code> command set. For instance, you can use <code class="docutils literal"><span class="pre">box.update.binds</span></code>
+to update a box&#8217;s default bind mounts:</p>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.update.binds mybox a///b   # Add a///b to the default bind mounts.
+rootbox box.update.binds mybox ^a///b  # Remove it from the default bind mounts.
+</pre></div>
+</div>
+<p>As you can see, prefixing a bind with <code class="docutils literal"><span class="pre">^</span></code> will remove it instead of adding it.</p>
+<p>Similarly, <code class="docutils literal"><span class="pre">box.update.factory</span></code> can be used to run another factory once the
+box has already been created:</p>
+<div class="highlight-python"><div class="highlight"><pre>rootbox box.update.factory mybox url:https://foo.bar/myfactory.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="exporting-and-importing-your-boxes">
+<h2>Exporting and importing your boxes<a class="headerlink" href="#exporting-and-importing-your-boxes" title="Permalink to this headline">¶</a></h2>
+<p>Boxes can be exported using <code class="docutils literal"><span class="pre">box.dist</span></code>. It works much like you&#8217;d expect by
+now:</p>
 <div class="highlight-python"><div class="highlight"><pre>rootbox box.dist mybox
 </pre></div>
 </div>
@@ -385,8 +405,8 @@ rootbox box.import git:Cooluser101/myboxes///cool_stuff.box mybox
 </pre></div>
 </div>
 </div>
-<div class="section" id="an-example">
-<h2>An example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="some-examples">
+<h2>Some examples<a class="headerlink" href="#some-examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="building-c">
 <h3>Building C<a class="headerlink" href="#building-c" title="Permalink to this headline">¶</a></h3>
 <p>Donald wants to create a box that can be used to statically compile his C
