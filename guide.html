@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Using Rootbox &mdash; Rootbox 0.1 documentation</title>
-    
+    <title>Using Rootbox &#8212; Rootbox 0.1 documentation</title>
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-3.3.6/css/bootstrap.min.css" type="text/css" />
@@ -14,14 +11,14 @@
     <link rel="stylesheet" href="_static/bootstrap-material/css/ripples.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
         VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -33,14 +30,15 @@
     <script type="text/javascript" src="_static/bootstrap-material/js/material.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-material/js/ripples.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Rootbox 0.1 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -106,19 +104,19 @@
 <h2>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>Rootbox requires two things:</p>
 <ul class="simple">
-<li>A Linux system. Some others Unixes (like the BSDs) may work, but they&#8217;re
+<li>A Linux system. Some others Unixes (like the BSDs) may work, but they’re
 untested.</li>
 <li>An file system with sparse file support to store the workspace directory (see
 below). Rootbox relies on the magic of sparse files to easily create boxes and
 images. (Note that only ext4 has been tested.)</li>
 </ul>
-<p>Also, here&#8217;s something import:</p>
+<p>Also, here’s something import:</p>
 <p><strong>ROOTBOX IS NOT SECURE.</strong></p>
 <p>Let me repeat:</p>
 <p><strong>ROOTBOX IS NOT SECURE.</strong></p>
-<p>Third time&#8217;s the charm:</p>
+<p>Third time’s the charm:</p>
 <p><strong>ROOTBOX IS NOT SECURE.</strong></p>
-<p>Rootbox&#8217;s &#8220;boxes&#8221; are not intended to be used like you would use containers.
+<p>Rootbox’s “boxes” are not intended to be used like you would use containers.
 They <em>are</em> designed to be created and easily distributed and portable
 development environments, but they are <em>not</em> designed for running web servers or
 untrusted code. Use containers for that!</p>
@@ -126,77 +124,77 @@ untrusted code. Use containers for that!</p>
 <div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Just run:</p>
-<div class="highlight-python"><div class="highlight"><pre>curl -L https://goo.gl/H3OpCL | sudo sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">goo</span><span class="o">.</span><span class="n">gl</span><span class="o">/</span><span class="n">H3OpCL</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">sh</span>
 </pre></div>
 </div>
-<p>If you&#8217;re not confortable with running random internet scripts, you can also
+<p>If you’re not confortable with running random internet scripts, you can also
 install it from GitHub instead:</p>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/project-rootbox/rootbox.git
-cd rootbox
-sudo sh install.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">project</span><span class="o">-</span><span class="n">rootbox</span><span class="o">/</span><span class="n">rootbox</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">rootbox</span>
+<span class="n">sudo</span> <span class="n">sh</span> <span class="n">install</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<p>Once that&#8217;s done, you need to initialize the Rootbox workspace directory, which
+<p>Once that’s done, you need to initialize the Rootbox workspace directory, which
 is where all your images and boxes will be stored. You can do so using
 <code class="docutils literal"><span class="pre">rootbox</span> <span class="pre">init</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox init
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">init</span>
 </pre></div>
 </div>
 <p>This will initialize Rootbox in <code class="docutils literal"><span class="pre">$HOME/.rootbox</span></code>. If you want to use a
 different directory, just say so:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox init my_directory
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">init</span> <span class="n">my_directory</span>
 </pre></div>
 </div>
 <p>This will create the directory and symlink it to <code class="docutils literal"><span class="pre">$HOME/.rootbox</span></code>.</p>
 <p>Note that, as already mentioned above, <strong>this directory must be on a file system
 with sparse file support</strong>!</p>
 <p>If at any point in the future, you want to use a different workspace directory,
-you&#8217;ll need to pass <code class="docutils literal"><span class="pre">-f</span></code> to force the reinitialization.</p>
+you’ll need to pass <code class="docutils literal"><span class="pre">-f</span></code> to force the reinitialization.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">Do <strong>NOT</strong> tamper with the workspace directory! By that, I mean don&#8217;t go
+<p class="last">Do <strong>NOT</strong> tamper with the workspace directory! By that, I mean don’t go
 touching it in any way. Remember when I said that Rootbox uses sparse files?
 Well, that means that, if you try to play with the directory or copy/move
-files outside of it, there&#8217;s a chance all the sparse files will inflate to
+files outside of it, there’s a chance all the sparse files will inflate to
 their full 128 GB size. Ouch!!</p>
 </div>
 </div>
 <div class="section" id="concepts">
 <h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
-<p>Before we continue, I&#8217;d like to introduce some terms you&#8217;ll see floating around
+<p>Before we continue, I’d like to introduce some terms you’ll see floating around
 this document:</p>
 <ul class="simple">
 <li><strong>workspace</strong>: As mention above, this is the directory where Rootbox will save
 all your images and boxes (see below) into.</li>
-<li><strong>boxes</strong>: Boxes are essentially Rootbox&#8217;s version of containers. They hold
+<li><strong>boxes</strong>: Boxes are essentially Rootbox’s version of containers. They hold
 an <a class="reference external" href="https://alpinelinux.org/">Alpine Linux</a> installation, as well as
 whatever else you want to put in them. Note that, unlike containers, boxes are
-intentionally insecure, and they aren&#8217;t intended to be used for everything
+intentionally insecure, and they aren’t intended to be used for everything
 that one might use containers for.</li>
 <li><strong>images</strong>: Every box is base on an <em>image</em>. Images are just vanilla,
 unmodified Alpine Linux installations.</li>
-<li><strong>bind mounts</strong>: These allow you to &#8220;mount&#8221; external directories inside your
+<li><strong>bind mounts</strong>: These allow you to “mount” external directories inside your
 boxes.</li>
 </ul>
-<p>Got that? Let&#8217;s go on!</p>
+<p>Got that? Let’s go on!</p>
 </div>
 <div class="section" id="creating-an-image">
 <h2>Creating an image<a class="headerlink" href="#creating-an-image" title="Permalink to this headline">¶</a></h2>
 <p>As already mentioned, images are unmodified installations of Alpine Linux, ready
-to be converted to a box when desired. They&#8217;re easy to create:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox image.add 3.5
+to be converted to a box when desired. They’re easy to create:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">image</span><span class="o">.</span><span class="n">add</span> <span class="mf">3.5</span>
 </pre></div>
 </div>
-<p>Here, we&#8217;re using Alpine Linux 3.5, as passed to the version argument. Note that
+<p>Here, we’re using Alpine Linux 3.5, as passed to the version argument. Note that
 the resulting image will be around 210 MB in size. This seems rather big, but
 it also contains several development tools and libraries, such as GCC,
 libstdc++, git, and more. If you want just a plain Alpine Linux installation,
 then you can also pass <code class="docutils literal"><span class="pre">-s</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox image.add 3.5 -s
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">image</span><span class="o">.</span><span class="n">add</span> <span class="mf">3.5</span> <span class="o">-</span><span class="n">s</span>
 </pre></div>
 </div>
 <p>This will create a <em>slim</em> or <em>nodev</em> image, which is significantly lighter
-(around ~13 MB in size) but doesn&#8217;t contain development tools inside. When you
+(around ~13 MB in size) but doesn’t contain development tools inside. When you
 create a slim image, you can later reference using <code class="docutils literal"><span class="pre">VERSION-nodev</span></code>, like
 <code class="docutils literal"><span class="pre">3.5-nodev</span></code>.</p>
 <p>(You can also use <code class="docutils literal"><span class="pre">image.list</span></code> to list all your installed images and
@@ -205,41 +203,41 @@ create a slim image, you can later reference using <code class="docutils literal
 <div class="section" id="creating-a-box">
 <h2>Creating a box<a class="headerlink" href="#creating-a-box" title="Permalink to this headline">¶</a></h2>
 <p>Creating a new box is easy:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span>
 </pre></div>
 </div>
-<p>Here, we&#8217;re creating a box called <em>mybox</em>, using the Alpine Linux 3.5 image that
+<p>Here, we’re creating a box called <em>mybox</em>, using the Alpine Linux 3.5 image that
 was created earlier. If you want to use a different image instead, use <code class="docutils literal"><span class="pre">-v</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -v 3.4
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">v</span> <span class="mf">3.4</span>
 </pre></div>
 </div>
 <p>(To use the slim/nodev image, pass <code class="docutils literal"><span class="pre">-v</span> <span class="pre">3.5-nodev</span></code> instead.)</p>
 <p>You can also pass a list of bind mounts to be mounted whenever the box is run.
 For example:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox outside_directory///inside_directory
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="n">outside_directory</span><span class="o">///</span><span class="n">inside_directory</span>
 </pre></div>
 </div>
 <p>Now, whenever this box is run <code class="docutils literal"><span class="pre">outside_directory</span></code> will appear inside it as
 <code class="docutils literal"><span class="pre">/inside_directory</span></code>. For instance, if you always want the current directory
 to be mounted inside the box as <code class="docutils literal"><span class="pre">/cwd</span></code>, you could run:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new -n mybox .///cwd
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="o">-</span><span class="n">n</span> <span class="n">mybox</span> <span class="o">.///</span><span class="n">cwd</span>
 </pre></div>
 </div>
 <p>Absolute paths can be used, too:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new -n mybox /home/$USER///external_home
+<div class="highlight-default"><div class="highlight"><pre><span></span>rootbox box.new -n mybox /home/$USER///external_home
 </pre></div>
 </div>
 </div>
 <div class="section" id="running-your-boxes">
 <h2>Running your boxes<a class="headerlink" href="#running-your-boxes" title="Permalink to this headline">¶</a></h2>
-<p>Now that a box has been created, let&#8217;s run it!</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox
+<p>Now that a box has been created, let’s run it!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">run</span> <span class="n">mybox</span>
 </pre></div>
 </div>
 <p>This will put you inside an <code class="docutils literal"><span class="pre">ash</span></code> shell inside your box. Take a look around
-for a bit! Once you&#8217;re done, you can Ctrl-D out of it.</p>
+for a bit! Once you’re done, you can Ctrl-D out of it.</p>
 <p>Just like above, bind mounts can be created when the box is run:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox .///cwd
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">run</span> <span class="n">mybox</span> <span class="o">.///</span><span class="n">cwd</span>
 </pre></div>
 </div>
 <p>These will be mounted in addition to any specified when creating the box for the
@@ -248,16 +246,16 @@ first time.</p>
 manager,
 <a class="reference external" href="https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management">apk</a>, like
 this:</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo apk add clang
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apk</span> <span class="n">add</span> <span class="n">clang</span>
 </pre></div>
 </div>
 <p>A command can also be passed via the command line:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox -c &#39;echo 123&#39;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">run</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;echo 123&#39;</span>
 </pre></div>
 </div>
-<p>If you&#8217;re planning on running X11 applications inside your box, you&#8217;ll need to
+<p>If you’re planning on running X11 applications inside your box, you’ll need to
 pass <code class="docutils literal"><span class="pre">-x</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.run mybox -x
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">run</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">x</span>
 </pre></div>
 </div>
 <p>(Note that you may also need to run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apk</span> <span class="pre">add</span> <span class="pre">font-adobe-100dpi</span></code> if you
@@ -267,66 +265,66 @@ in your programs.)</p>
 <div class="section" id="box-factories">
 <h2>Box factories<a class="headerlink" href="#box-factories" title="Permalink to this headline">¶</a></h2>
 <p>Factories are an imporant concept in Rootbox! A box factory is just a shell
-script that&#8217;s run inside your box upon creation to set things up. For instance,
+script that’s run inside your box upon creation to set things up. For instance,
 you could create a factory <code class="docutils literal"><span class="pre">clang.sh</span></code> containing:</p>
-<div class="highlight-shell"><div class="highlight"><pre>sudo apk add clang
+<div class="highlight-shell"><div class="highlight"><pre><span></span>sudo apk add clang
 </pre></div>
 </div>
 <p>To create a box using your factory, you can just run:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f clang.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">clang</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p><code class="docutils literal"><span class="pre">-f</span></code> takes a path to your box factory. However, things get fancier than that!</p>
 <p>You can have one factory depend on another one. For instance, you might have
 <code class="docutils literal"><span class="pre">llvm.sh</span></code> to install llvm:</p>
-<div class="highlight-shell"><div class="highlight"><pre>sudo apk add llvm
+<div class="highlight-shell"><div class="highlight"><pre><span></span>sudo apk add llvm
 </pre></div>
 </div>
 <p>Then, <code class="docutils literal"><span class="pre">clang.sh</span></code> could be modified to read:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span class="c">#:DEPENDS llvm.sh</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="c1">#:DEPENDS llvm.sh</span>
 sudo apk add clang
 </pre></div>
 </div>
 <p>The <code class="docutils literal"><span class="pre">#:DEPENDS</span></code> means that <code class="docutils literal"><span class="pre">llvm.sh</span></code> must be run first. Now, when you use
 <code class="docutils literal"><span class="pre">clang.sh</span></code> as your box factory, <code class="docutils literal"><span class="pre">llvm.sh</span></code> will be run, too!</p>
 <p>Box factories can also specify Alpine Linux versions that they work on:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span class="c">#:VERSION 3.5 3.5-nodev</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="c1">#:VERSION 3.5 3.5-nodev</span>
 </pre></div>
 </div>
 <p>This factory will run under 3.5 and 3.5-nodev, but if you try to use it on an
-Alpine 3.4 box, Rootbox won&#8217;t let you.</p>
+Alpine 3.4 box, Rootbox won’t let you.</p>
 </div>
 <div class="section" id="using-factories-from-the-internet">
 <h2>Using factories from the internet<a class="headerlink" href="#using-factories-from-the-internet" title="Permalink to this headline">¶</a></h2>
-<p>If things weren&#8217;t already awesome enough, you can load your factories straight
+<p>If things weren’t already awesome enough, you can load your factories straight
 from the web or Git. If you have a factory up at GitHub, you could use it via:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f git:myuser/myrepo@@mybranch///myfactory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">myuser</span><span class="o">/</span><span class="n">myrepo</span><span class="o">@</span><span class="nd">@mybranch</span><span class="o">///</span><span class="n">myfactory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>If <code class="docutils literal"><span class="pre">&#64;&#64;mybranch</span></code> is ommited, it defaults to <em>master</em>. If <code class="docutils literal"><span class="pre">///myfactory.sh</span></code>
 is ommited, it defaults to <code class="docutils literal"><span class="pre">factory.sh</span></code>. For instance, to load <code class="docutils literal"><span class="pre">factory.sh</span></code>
 from <code class="docutils literal"><span class="pre">CoolRootboxScripts/cool_scripts_set_1</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">CoolRootboxScripts</span><span class="o">/</span><span class="n">cool_scripts_set_1</span>
 </pre></div>
 </div>
 <p>To use <code class="docutils literal"><span class="pre">my_other_factory.sh</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1///my_other_factory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">CoolRootboxScripts</span><span class="o">/</span><span class="n">cool_scripts_set_1</span><span class="o">///</span><span class="n">my_other_factory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>To use it from the branch <code class="docutils literal"><span class="pre">devel</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f git:CoolRootboxScripts/cool_scripts_set_1@@devel///my_other_factory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">CoolRootboxScripts</span><span class="o">/</span><span class="n">cool_scripts_set_1</span><span class="o">@</span><span class="nd">@devel</span><span class="o">///</span><span class="n">my_other_factory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>GitLab is supported, too:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f gitlab:MyGitlabUser/my_gitlab_repo@@branch///factory_name.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">gitlab</span><span class="p">:</span><span class="n">MyGitlabUser</span><span class="o">/</span><span class="n">my_gitlab_repo</span><span class="o">@</span><span class="nd">@branch</span><span class="o">///</span><span class="n">factory_name</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>as well as any other plain old Git repository:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f git:https://whatever.com/my_repo.git@@branch///factory_name.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">whatever</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">my_repo</span><span class="o">.</span><span class="n">git</span><span class="o">@</span><span class="nd">@branch</span><span class="o">///</span><span class="n">factory_name</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>In fact, factories can be pulled from anywhere on the internet:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new mybox -f url:https://mysite.com/some_cool_factory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">f</span> <span class="n">url</span><span class="p">:</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">mysite</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">some_cool_factory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>The syntax this time is a bit different: the url must point to an absolute URL
@@ -334,9 +332,9 @@ to the factory. If the URL ends with a slash (<code class="docutils literal"><sp
 be appended to it.</p>
 <p>These location formats can be used inside the <code class="docutils literal"><span class="pre">DEPENDS</span></code> section of a script,
 too. You could have something like this:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span class="c"># This is my cool factory script!</span>
-<span class="c">#:DEPENDS git:myuser/myrepo///myfactory.sh</span>
-<span class="c">#:DEPENDS url:rootbox_factories.com/myotherfactory.sh</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="c1"># This is my cool factory script!</span>
+<span class="c1">#:DEPENDS git:myuser/myrepo///myfactory.sh</span>
+<span class="c1">#:DEPENDS url:rootbox_factories.com/myotherfactory.sh</span>
 </pre></div>
 </div>
 <p>There are several pre-made factories in the still-growing
@@ -347,61 +345,61 @@ be useful to a lot of people, you can open up an issue there as a request.</p>
 <div class="section" id="managing-exporting-and-importing-your-boxes">
 <h2>Managing, exporting, and importing your boxes<a class="headerlink" href="#managing-exporting-and-importing-your-boxes" title="Permalink to this headline">¶</a></h2>
 <p>If you want to see a list of all the boxes that have been installed, just run:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.list
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">list</span>
 </pre></div>
 </div>
 <p>You can get info about an individual box with <code class="docutils literal"><span class="pre">box.info</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.info mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">info</span> <span class="n">mybox</span>
 </pre></div>
 </div>
 <p>Boxes can be cloned:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.clone source_box new_box
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">clone</span> <span class="n">source_box</span> <span class="n">new_box</span>
 </pre></div>
 </div>
 <p>and deleted:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.remove mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">remove</span> <span class="n">mybox</span>
 </pre></div>
 </div>
-<p>If you want to change your a box&#8217;s settings later on, you can use
+<p>If you want to change your a box’s settings later on, you can use
 the <code class="docutils literal"><span class="pre">box.update</span></code> command set. For instance, you can use <code class="docutils literal"><span class="pre">box.update.binds</span></code>
-to update a box&#8217;s default bind mounts:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.update.binds mybox a///b   # Add a///b to the default bind mounts.
-rootbox box.update.binds mybox ^a///b  # Remove it from the default bind mounts.
+to update a box’s default bind mounts:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">binds</span> <span class="n">mybox</span> <span class="n">a</span><span class="o">///</span><span class="n">b</span>   <span class="c1"># Add a///b to the default bind mounts.</span>
+<span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">binds</span> <span class="n">mybox</span> <span class="o">^</span><span class="n">a</span><span class="o">///</span><span class="n">b</span>  <span class="c1"># Remove it from the default bind mounts.</span>
 </pre></div>
 </div>
 <p>As you can see, prefixing a bind with <code class="docutils literal"><span class="pre">^</span></code> will remove it instead of adding it.</p>
 <p>Similarly, <code class="docutils literal"><span class="pre">box.update.factory</span></code> can be used to run another factory once the
 box has already been created:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.update.factory mybox url:https://foo.bar/myfactory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">update</span><span class="o">.</span><span class="n">factory</span> <span class="n">mybox</span> <span class="n">url</span><span class="p">:</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">foo</span><span class="o">.</span><span class="n">bar</span><span class="o">/</span><span class="n">myfactory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exporting-and-importing-your-boxes">
 <h2>Exporting and importing your boxes<a class="headerlink" href="#exporting-and-importing-your-boxes" title="Permalink to this headline">¶</a></h2>
-<p>Boxes can be exported using <code class="docutils literal"><span class="pre">box.dist</span></code>. It works much like you&#8217;d expect by
+<p>Boxes can be exported using <code class="docutils literal"><span class="pre">box.dist</span></code>. It works much like you’d expect by
 now:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.dist mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">dist</span> <span class="n">mybox</span>
 </pre></div>
 </div>
-<p>The default file name is <code class="docutils literal"><span class="pre">&lt;your_box_name&gt;.box</span></code>. In this case, it&#8217;ll be
+<p>The default file name is <code class="docutils literal"><span class="pre">&lt;your_box_name&gt;.box</span></code>. In this case, it’ll be
 <code class="docutils literal"><span class="pre">mybox.box</span></code>. That can be overriden, of course:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.dist mybox -o my_custom_name.box
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">dist</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">o</span> <span class="n">my_custom_name</span><span class="o">.</span><span class="n">box</span>
 </pre></div>
 </div>
 <p>In addition, you can apply compression using <code class="docutils literal"><span class="pre">-c</span></code> to make it a bit smaller:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.dist mybox -o gzip_compressed.box.gz -c gzip
-rootbox box.dist mybox -o bzip2_compressed.box.bz2 -c bzip2
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">dist</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">o</span> <span class="n">gzip_compressed</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">gz</span> <span class="o">-</span><span class="n">c</span> <span class="n">gzip</span>
+<span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">dist</span> <span class="n">mybox</span> <span class="o">-</span><span class="n">o</span> <span class="n">bzip2_compressed</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">bz2</span> <span class="o">-</span><span class="n">c</span> <span class="n">bzip2</span>
 </pre></div>
 </div>
 <p>Boxes can also be imported:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.import mybox.box.gz mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="kn">import</span> <span class="nn">mybox.box.gz</span> <span class="n">mybox</span>
 </pre></div>
 </div>
 <p>Here, <code class="docutils literal"><span class="pre">mybox.box.gz</span></code> is being imported using the name <code class="docutils literal"><span class="pre">mybox</span></code>. In fact,
 boxes can be imported from virtually anywhere, using the exact same syntax as
 used with box factories:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.import url:rootbox_storage.com/1234567 mybox
-rootbox box.import git:Cooluser101/myboxes///cool_stuff.box mybox
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="kn">import</span> <span class="nn">url</span><span class="p">:</span><span class="n">rootbox_storage</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mi">1234567</span> <span class="n">mybox</span>
+<span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="kn">import</span> <span class="nn">git</span><span class="p">:</span><span class="n">Cooluser101</span><span class="o">/</span><span class="n">myboxes</span><span class="o">///</span><span class="n">cool_stuff</span><span class="o">.</span><span class="n">box</span> <span class="n">mybox</span>
 </pre></div>
 </div>
 </div>
@@ -411,29 +409,29 @@ rootbox box.import git:Cooluser101/myboxes///cool_stuff.box mybox
 <h3>Building C<a class="headerlink" href="#building-c" title="Permalink to this headline">¶</a></h3>
 <p>Donald wants to create a box that can be used to statically compile his C
 programs. Alpine Linux is great for static linking:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new static_c .///cwd
-rootbox box.run static_c
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">static_c</span> <span class="o">.///</span><span class="n">cwd</span>
+<span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">run</span> <span class="n">static_c</span>
 
-# Inside the box...
-cd /cwd
-echo &#39;int main() {}&#39; &gt; x.c
-gcc -static -o x x.c
-exit
+<span class="c1"># Inside the box...</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">cwd</span>
+<span class="n">echo</span> <span class="s1">&#39;int main() </span><span class="si">{}</span><span class="s1">&#39;</span> <span class="o">&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">c</span>
+<span class="n">gcc</span> <span class="o">-</span><span class="n">static</span> <span class="o">-</span><span class="n">o</span> <span class="n">x</span> <span class="n">x</span><span class="o">.</span><span class="n">c</span>
+<span class="n">exit</span>
 
-# Back outside again...
-ldd x  # statically linked
+<span class="c1"># Back outside again...</span>
+<span class="n">ldd</span> <span class="n">x</span>  <span class="c1"># statically linked</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="building-nim">
 <h3>Building Nim<a class="headerlink" href="#building-nim" title="Permalink to this headline">¶</a></h3>
 <p>Mary wants to create a box designed for building Nim programs. She can use
-factories to automate...everything:</p>
-<div class="highlight-shell"><div class="highlight"><pre>sudo apk add xz linenoise-dev libexecinfo-dev
+factories to automate…everything:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span></span>sudo apk add xz linenoise-dev libexecinfo-dev
 
 curl -L https://nim-lang.org/download/nim-0.16.0.tar.xz -o nim.txz
 tar xvf nim.txz
-<span class="nb">cd </span>nim-0.16.0
+<span class="nb">cd</span> nim-0.16.0
 ./build.sh
 
 bin/nim c koch
@@ -443,19 +441,19 @@ sudo ./koch install /usr/local/bin
 </div>
 <p>She can save this to <code class="docutils literal"><span class="pre">nim-factory.sh</span></code>. Then, to create her image, she can
 just run:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new nim .///cwd -f nim-factory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">nim</span> <span class="o">.///</span><span class="n">cwd</span> <span class="o">-</span><span class="n">f</span> <span class="n">nim</span><span class="o">-</span><span class="n">factory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>If she uploads her Nim factory to GitHub in <code class="docutils literal"><span class="pre">mary123/factories</span></code>, someone else
 can use it, too:</p>
-<div class="highlight-python"><div class="highlight"><pre>rootbox box.new nim .///cwd -f git:mary123/factories///nim-factory.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rootbox</span> <span class="n">box</span><span class="o">.</span><span class="n">new</span> <span class="n">nim</span> <span class="o">.///</span><span class="n">cwd</span> <span class="o">-</span><span class="n">f</span> <span class="n">git</span><span class="p">:</span><span class="n">mary123</span><span class="o">/</span><span class="n">factories</span><span class="o">///</span><span class="n">nim</span><span class="o">-</span><span class="n">factory</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>If Robby wants to build a Nim program using Rootbox, he can create a factory,
 too:</p>
-<div class="highlight-shell"><div class="highlight"><pre><span class="c">#:DEPENDS git:mary123/factories///nim-factory.sh</span>
+<div class="highlight-shell"><div class="highlight"><pre><span></span><span class="c1">#:DEPENDS git:mary123/factories///nim-factory.sh</span>
 git clone https://github.com/bobby456/my-nim-program.git
-<span class="nb">cd </span>my-nim-program
+<span class="nb">cd</span> my-nim-program
 nim c my-program.nim
 sudo cp my-program /usr/local/bin
 </pre></div>
@@ -464,7 +462,7 @@ sudo cp my-program /usr/local/bin
 </div>
 <div class="section" id="closing-thoughts">
 <h2>Closing thoughts<a class="headerlink" href="#closing-thoughts" title="Permalink to this headline">¶</a></h2>
-<p>Rootbox is still in the beta stages. If you notice anything isn&#8217;t working quite
+<p>Rootbox is still in the beta stages. If you notice anything isn’t working quite
 correctly, feel free to report it to the
 <a class="reference external" href="https://github.com/project-rootbox/rootbox/issues/new">GitHub repo</a>.</p>
 <p>Have fun playing with your boxes!!!</p>
@@ -484,14 +482,14 @@ correctly, feel free to report it to the
         <br/>
         
 <div id="sourcelink">
-  <a href="_sources/guide.txt"
+  <a href="_sources/guide.rst.txt"
      rel="nofollow">Source<div class="ripple-container"></div></a>
 </div>
       
     </p>
     <p>
         &copy; Copyright 2017, Ryan Gonzalez.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.<br/>
     </p>
   </div>
 </footer>
