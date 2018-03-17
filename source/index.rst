@@ -19,6 +19,14 @@ Rootbox
 
   <h3 class="intro">
 
+***Rootbox is no longer maintained.***
+
+I've largely replaced Rootbox with
+`IsolateKit <https://github.com/kirbyfan64/isolatekit>`_, a similar, far better project I
+created. The original Rootbox documentation will be left up, though.
+
+***Rootbox is no longer maintained.***
+
 Rootbox is a tool that lets you create and distribute "boxes": isolated
 environments designed for building code thanks to the power of chroots and
 mounts.
